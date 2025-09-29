@@ -378,36 +378,104 @@ body {
 
 /* --- Responsive Design (Mobile) --- */
 @media (max-width: 768px) {
+    
+
+    /* --- Header & Navigation --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Memastikan logo dan nav sejajar vertikal */
+    padding: 1.5rem 5rem;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    /* Penting: Set z-index agar header selalu di atas konten lain */
+    position: relative;
+    z-index: 50; 
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: var(--color-green-dark);
+}
+
+.hamburger-menu {
+    display: none; /* Sembunyikan di desktop */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 51; /* Pastikan hamburger di atas header itu sendiri jika ada tumpang tindih */
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text-dark);
+    transition: all 0.3s ease;
+}
+
+/* --- Responsive Navbar (Mobile) --- */
+@media (max-width: 768px) {
     .main-header {
-        padding: 1.5rem 2rem;
+        padding: 1.5rem 2rem; /* Mengurangi padding di HP */
     }
 
     .main-nav {
-        position: absolute;
+        /* Properti untuk membuat menu sidebar */
+        position: fixed; /* Ubah dari absolute ke fixed agar mengikuti viewport */
         top: 0;
         right: 0;
         height: 100vh;
-        width: 60%;
+        width: 75%; /* Sedikit lebih lebar dari 60% agar lebih mudah dijangkau */
         background-color: var(--color-bg-light);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transform: translateX(100%);
+        transform: translateX(100%); /* Sembunyikan di luar layar */
         transition: transform 0.3s ease-in-out;
+        z-index: 1000; /* NILAI Z-INDEX TINGGI untuk memastikan menu selalu di atas semua elemen lain */
     }
 
     .main-nav.active {
-        transform: translateX(0);
+        transform: translateX(0); /* Tampilkan menu saat kelas 'active' ditambahkan oleh JS */
     }
     
     .main-nav ul {
         flex-direction: column;
         text-align: center;
+        gap: 2rem; /* Jarak antar menu di HP */
+    }
+
+    .nav-item {
+        font-size: 1.1rem; /* Perbesar teks di HP */
+        padding: 0.5rem 0;
     }
 
     .hamburger-menu {
-        display: flex;
-        z-index: 20;
+        display: flex; /* Tampilkan di HP */
     }
 
     .hero-section {
