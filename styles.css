@@ -376,66 +376,6 @@ body {
     }
 }
 
-/* --- Responsive Design (Mobile) --- */
-@media (max-width: 768px) {
-    
-
-    /* --- Header & Navigation --- */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Memastikan logo dan nav sejajar vertikal */
-    padding: 1.5rem 5rem;
-    background-color: var(--color-bg-light);
-    color: var(--color-text-dark);
-    /* Penting: Set z-index agar header selalu di atas konten lain */
-    position: relative;
-    z-index: 50; 
-}
-
-.logo-img {
-    height: 40px;
-    width: auto;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 3rem;
-}
-
-.nav-item {
-    text-decoration: none;
-    color: var(--color-text-dark);
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-.nav-item:hover {
-    color: var(--color-green-dark);
-}
-
-.hamburger-menu {
-    display: none; /* Sembunyikan di desktop */
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-    z-index: 51; /* Pastikan hamburger di atas header itu sendiri jika ada tumpang tindih */
-}
-
-.hamburger-menu .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--color-text-dark);
-    transition: all 0.3s ease;
-}
 
 /* --- Responsive Navbar (Mobile) --- */
 @media (max-width: 768px) {
